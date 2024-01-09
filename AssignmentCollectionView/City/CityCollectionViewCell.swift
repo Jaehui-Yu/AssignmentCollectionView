@@ -17,7 +17,7 @@ class CityCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         
         imageView.contentMode = .scaleToFill
-        imageView.layer.cornerRadius = imageView.frame.height / 2
+        imageView.layer.cornerRadius = (UIScreen.main.bounds.width - (20 * 3)) / 4
         
         mainLabel.font = .boldSystemFont(ofSize: 16)
         mainLabel.textAlignment = .center

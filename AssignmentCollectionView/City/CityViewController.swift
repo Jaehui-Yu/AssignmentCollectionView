@@ -17,7 +17,7 @@ struct City {
 }
 
 struct CityInfo {
-    let city: [City] = [
+    var city: [City] = [
         City(city_name: "방콕", city_english_name: "Bangkok", city_explain: "방콕, 파타야, 후아힌, 코사멧, 코사무이", city_image: "https://i.namu.wiki/i/OUKHuXT-QXe-wDgGE_9hMfEW9Sb3lyMWl0SSbpTQyfl0Lw3rs_A_DuVyXBNXTFG3FUkfmy7hBjL68dgLzssEQg.webp", domestic_travel: false),
         City(city_name: "오사카", city_english_name: "Osaka", city_explain: "오사카, 교토, 고베, 나라", city_image: "https://i.namu.wiki/i/IyejHd9WlEd118tJq1coTwS4RpkaqIY0JhPbbiVX6WWpkkoWbLK-R4DkPg8GN4cLvm0RmhWuBTrY7HymFxoUhFY48GKKxnmzsXNu7VZBO2x1y9wsOizxOxb0ngLmTqjQeZVd4pgySwBDqRvoc9LYsw.webp", domestic_travel: false),
         City(city_name: "다낭", city_english_name: "Danang", city_explain: "다낭, 호이안, 후에", city_image: "https://i.namu.wiki/i/skBWgWUvf6QsFa_GV-falaAW6bO-g1FDlSTTL8AHZ-WfRdDVwpll5AR29N4oPl1H0SMqIAP87clppdEpmGdrwVEFAAT47BUVNCk02OrN9S7a1m3o4AKoEFO1UUTUvtO02mFV2tCOAz9l32hWwKDESA.webp", domestic_travel: false),
@@ -38,7 +38,7 @@ struct CityInfo {
 
 class CityViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    let cityInfo = CityInfo()
+    var cityInfo = CityInfo()
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cityInfo.city.count
@@ -59,6 +59,8 @@ class CityViewController: UIViewController, UICollectionViewDataSource, UICollec
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        segmentedControl.addTarget(self, action: #selector(segmentedChanged), for: .valueChanged)
+        
         // XiB
         let xib = UINib(nibName: "CityCollectionViewCell", bundle: nil)
         cityCollectionView.register(xib, forCellWithReuseIdentifier: "CityCollectionViewCell")
@@ -67,7 +69,7 @@ class CityViewController: UIViewController, UICollectionViewDataSource, UICollec
         let layout = UICollectionViewFlowLayout()
         let spacing: CGFloat = 20
         let cellWidth = UIScreen.main.bounds.width - (spacing * 3)
-        layout.itemSize = CGSize(width: cellWidth / 2, height: cellWidth / 2 + 40)
+        layout.itemSize = CGSize(width: cellWidth / 2, height: cellWidth / 2 + 60)
         layout.sectionInset = UIEdgeInsets(top: 0, left: spacing, bottom: spacing, right: spacing)
         layout.minimumLineSpacing = spacing
         layout.minimumInteritemSpacing = spacing
@@ -76,5 +78,16 @@ class CityViewController: UIViewController, UICollectionViewDataSource, UICollec
         // dataSource, delegate 연결
         cityCollectionView.dataSource = self
         cityCollectionView.dataSource = self
+    }
+    
+    @objc func segmentedChanged() {
+        if segmentedControl.selectedSegmentIndex == 1 {
+            cityInfo.city = CityInfo().city.filter { $0.domestic_travel == true }
+        } else if segmentedControl.selectedSegmentIndex == 2 {
+            cityInfo.city = CityInfo().city.filter { $0.domestic_travel == false}
+        } else {
+            cityInfo.city = CityInfo().city
+        }
+        cityCollectionView.reloadData()
     }
 }
