@@ -8,22 +8,9 @@
 import UIKit
 import Kingfisher
 
-class CityViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class CityViewController: UIViewController {
     
     var cityInfo = CityInfo()
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return cityInfo.city.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CityCollectionViewCell", for: indexPath) as! CityCollectionViewCell
-        let row = cityInfo.city[indexPath.item]
-        
-        cell.configureCell(city: row)
-        
-        return cell
-    }
     
     @IBOutlet var segmentedControl: UISegmentedControl!
     @IBOutlet var cityCollectionView: UICollectionView!
@@ -39,12 +26,7 @@ class CityViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         // 레이아웃
         let layout = UICollectionViewFlowLayout()
-        let spacing: CGFloat = 20
-        let cellWidth = UIScreen.main.bounds.width - (spacing * 3)
-        layout.itemSize = CGSize(width: cellWidth / 2, height: cellWidth / 2 + 60)
-        layout.sectionInset = UIEdgeInsets(top: 0, left: spacing, bottom: spacing, right: spacing)
-        layout.minimumLineSpacing = spacing
-        layout.minimumInteritemSpacing = spacing
+        layout.setLayout()
         cityCollectionView.collectionViewLayout = layout
         
         // dataSource, delegate 연결

@@ -18,6 +18,8 @@
 		0900C5862B4D2DE800044114 /* CityCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0900C5842B4D2DE800044114 /* CityCollectionViewCell.xib */; };
 		0900C5892B4D32AB00044114 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 0900C5882B4D32AB00044114 /* Kingfisher */; };
 		0900C58D2B4D656800044114 /* CityData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0900C58C2B4D656800044114 /* CityData.swift */; };
+		094E08AB2B4E8DCA00A9FA64 /* CityExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094E08AA2B4E8DCA00A9FA64 /* CityExtension.swift */; };
+		094E08AD2B4E8DD000A9FA64 /* CityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094E08AC2B4E8DD000A9FA64 /* CityProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		0900C5832B4D2DE800044114 /* CityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCollectionViewCell.swift; sourceTree = "<group>"; };
 		0900C5842B4D2DE800044114 /* CityCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityCollectionViewCell.xib; sourceTree = "<group>"; };
 		0900C58C2B4D656800044114 /* CityData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityData.swift; sourceTree = "<group>"; };
+		094E08AA2B4E8DCA00A9FA64 /* CityExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityExtension.swift; sourceTree = "<group>"; };
+		094E08AC2B4E8DD000A9FA64 /* CityProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,8 @@
 				0900C57F2B4D2CFA00044114 /* CityViewController.swift */,
 				0900C5832B4D2DE800044114 /* CityCollectionViewCell.swift */,
 				0900C5842B4D2DE800044114 /* CityCollectionViewCell.xib */,
+				094E08AA2B4E8DCA00A9FA64 /* CityExtension.swift */,
+				094E08AC2B4E8DD000A9FA64 /* CityProtocol.swift */,
 			);
 			path = City;
 			sourceTree = "<group>";
@@ -167,10 +173,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				094E08AD2B4E8DD000A9FA64 /* CityProtocol.swift in Sources */,
 				0900C58D2B4D656800044114 /* CityData.swift in Sources */,
 				0900C56F2B4D2B8700044114 /* ViewController.swift in Sources */,
 				0900C56B2B4D2B8700044114 /* AppDelegate.swift in Sources */,
 				0900C56D2B4D2B8700044114 /* SceneDelegate.swift in Sources */,
+				094E08AB2B4E8DCA00A9FA64 /* CityExtension.swift in Sources */,
 				0900C5852B4D2DE800044114 /* CityCollectionViewCell.swift in Sources */,
 				0900C5802B4D2CFA00044114 /* CityViewController.swift in Sources */,
 			);
