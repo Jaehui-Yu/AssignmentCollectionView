@@ -8,9 +8,7 @@
 import UIKit
 
 class HotPlaceTableViewCell: UITableViewCell {
-    
-    static let identifier = "HotPlaceTableViewCell"
-    
+        
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var posterImageView: UIImageView!

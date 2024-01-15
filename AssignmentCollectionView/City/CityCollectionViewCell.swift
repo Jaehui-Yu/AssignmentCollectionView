@@ -20,14 +20,11 @@ class CityCollectionViewCell: UICollectionViewCell {
         mainLabel.setMainLabel()
         subLabel.setSubLabel()
     }
-}
-
-extension CityCollectionViewCell: configureCell {
     
     func configureCell(data: City) {
         let url = URL(string: data.city_image)
         imageView.kf.setImage(with: url)
-        mainLabel.text = "\(data.city_name) | \(data.city_english_name)"
+        mainLabel.text = data.city_pull_name
         subLabel.text = data.city_explain
     }
 }
